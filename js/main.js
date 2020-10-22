@@ -1,25 +1,10 @@
-//import your packages here
-import Team from "./modules/DataModule.js";
-//import Person from "./modules/TheNavSystem.js";
+import { fetchData } from "./modules/DataMiner.js";
+
 
 (() => {
-
-    fetch('./DataSet.json')
-    .then(res => res.json()) // parse the JASON (translate) back to Plain
-    .then(data => {
-        // this is our data (DataSet.json)
-        // Converted to a plain JavaScript Object
-        
     
-        // debugger;
-        console.log(data)
-        handleDataSet(data);
-    // here's where you would call the function that puts the pieces on the page
-    })
 
-    .catch((err) => {
-    console.log(err);
-    })
+    
 
 console.log('Loaded');
 
@@ -51,8 +36,8 @@ function handleDataSet(data) {
 
              currentUserText[1].textContent = data[user].name;
              currentUserText[2].src = `images/${data[user].avatar}.jpg`;
-             currentUserText[2].textContent = data[user].role;
-             currentUserText[3].textContent = data[user].nickname;
+             currentUserText[3].textContent = data[user].role;
+             currentUserText[4].textContent = data[user].nickname;
 
              userSection.appendChild(currentUser);
       }
@@ -60,7 +45,9 @@ function handleDataSet(data) {
 
       console.log(data);
  }
-  
+
+ fetchData('./DataSet.json').then(data => handleDataSet(data)).catch(err => console.log(err));
+ fetchData('./AnotherDataSet.json').then(data => handleDataSet(data)).catch(err => console.log(err));
  //handleDataSet(Team);
 
 })();
