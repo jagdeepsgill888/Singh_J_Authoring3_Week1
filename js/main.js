@@ -47,7 +47,7 @@ function handleDataSet(data) {
  }
 
  fetchData('./DataSet.json').then(data => handleDataSet(data)).catch(err => console.log(err));
- fetchData('./AnotherDataSet.json').then(data => handleDataSet(data)).catch(err => console.log(err));
+// fetchData('./AnotherDataSet.json').then(data => handleDataSet(data)).catch(err => console.log(err));
  //handleDataSet(Team);
 
 })();
