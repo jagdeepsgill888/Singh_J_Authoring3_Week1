@@ -14,7 +14,9 @@
 
     try {
         $pdo = new PDO($dsn, $db_user, $db_pass);
-        var_dump($pdo);
+        // var_dump($pdo);
+        // ehco (in this case) is almost like console.log
+        // echo "your in! enjoy";
     } catch (PDOException $exception) {
         echo 'Connection Error:'.$exception->getMessage();
         exit();
