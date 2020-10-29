@@ -1,8 +1,13 @@
 .user {
-    display: inline-block;
-    padding: 12px;
+  display: inline-block;
+  padding: 12px;
 
-    .user-name, .user-nickname, .user-role { margin: 0; padding: 0; }
+  .user-name,
+  .user-nickname,
+  .user-role {
+    margin: 0;
+    padding: 0;
+  }
 
-    img { width: 285px; height: 230px;}
+  // img { width: 285px; height: 230px;}
 }

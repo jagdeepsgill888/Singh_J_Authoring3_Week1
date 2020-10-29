@@ -34,7 +34,7 @@ function handleDataSet(data) {
         let currentUser = userTemplate.cloneNode(true),
         currentUserText = currentUser.querySelector('.user').children;
 
-        currentUserText[1].src = `images/${data[user].avatar}.jpg`;
+        currentUserText[1].src = `images/${data[user].avatar}`;
         currentUserText[2].textContent = data[user].name;
         currentUserText[3].textContent = data[user].role;
         currentUserText[4].textContent = data[user].nickname;
@@ -46,7 +46,7 @@ function handleDataSet(data) {
       console.log(data);
  }
 
- fetchData('./DataSet.json').then(data => handleDataSet(data)).catch(err => console.log(err));
+ fetchData("./includes/functions.php").then(data => handleDataSet(data)).catch(err => console.log(err));
 // fetchData('./AnotherDataSet.json').then(data => handleDataSet(data)).catch(err => console.log(err));
  //handleDataSet(Team);
 
