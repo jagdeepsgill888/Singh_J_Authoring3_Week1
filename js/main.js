@@ -46,7 +46,8 @@ function handleDataSet(data) {
       console.log(data);
  }
 
- fetchData("./includes/functions.php").then(data => handleDataSet(data)).catch(err => console.log(err));
+ fetchData("./includes/functions.php").then(data => handleDataSet(data)).catch(err => { console.log(err);
+ popErrorBox(err); });
 // fetchData('./AnotherDataSet.json').then(data => handleDataSet(data)).catch(err => console.log(err));
  //handleDataSet(Team);
 
