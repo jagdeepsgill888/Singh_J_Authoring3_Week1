@@ -38,7 +38,8 @@ function handleDataSet(data) {
         currentUserText[2].textContent = data[user].name;
         currentUserText[3].textContent = data[user].role;
         currentUserText[4].textContent = data[user].nickname;
-
+             
+             //add this new user to the view
              userSection.appendChild(currentUser);
       }
    
@@ -46,8 +47,32 @@ function handleDataSet(data) {
       console.log(data);
  }
 
- fetchData("./includes/functions.php").then(data => handleDataSet(data)).catch(err => { console.log(err);
- popErrorBox(err); });
+ function renderPortfolioThumbnails(thumbs) {
+   
+  let userSection =document.querySelector(".user-section"),
+    userTemplate = document.querySelector("#profs-template").content;
+
+      debugger;
+      for (let user in thumbs) {
+
+
+        let currentUser = userTemplate.cloneNode(true),
+        currentUserText = currentUser.querySelector('.user').children;
+
+        currentUserText[1].src = `images/${thumbs[user].avatar}`;
+        // currentUserText[2].textContent = data[user].name;
+        // currentUserText[3].textContent = data[user].role;
+        // currentUserText[4].textContent = data[user].nickname;
+             
+             
+             userSection.appendChild(currentUser);
+ }
+}
+
+ fetchData('./includes/index.php').then(data => renderPortfolioThumbnails(data)).catch(err => console.log(err));
+
+
+ //fetchData("./includes/index.php").then(data => handleDataSet(data)).catch(err => { console.log(err); popErrorBox(err); });
 // fetchData('./AnotherDataSet.json').then(data => handleDataSet(data)).catch(err => console.log(err));
  //handleDataSet(Team);
 
