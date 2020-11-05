@@ -21,7 +21,7 @@
   function getSingleUser($conn, $id)
   {
       $query = "SELECT * FROM profdata WHERE id=" . $id . "";
-      $runQuery = $pdo->query($query);
+      $runQuery = $conn->query($query);//was pdo ,worked on postman was some reason
   
       while ($row = $runQuery->fetchAll(PDO::FETCH_ASSOC)) {
           $result[] = $row;
