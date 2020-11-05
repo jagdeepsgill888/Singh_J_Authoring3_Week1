@@ -7,7 +7,7 @@
   {
       $query = "SELECT * FROM profdata";
 
-      $runQuery = $pdo->query($query);
+      $runQuery = $conn->query($query);
   
       while ($row = $runQuery->fetchAll(PDO::FETCH_ASSOC)) {
           $result[] = $row;
