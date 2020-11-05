@@ -47,6 +47,14 @@ function handleDataSet(data) {
       console.log(data);
  }
 
+function retrieveProjectInfo() {
+  //test for an id
+  debugger;
+  console.log(this.id);
+
+  fetchData(`./includes/index.php?id=${this.id}`).then(data => console.log(data)).catch(err => console.log(err));
+}
+
  function renderPortfolioThumbnails(thumbs) {
    
   let userSection =document.querySelector(".user-section"),
@@ -60,11 +68,12 @@ function handleDataSet(data) {
         currentUserText = currentUser.querySelector('.user').children;
 
         currentUserText[1].src = `images/${thumbs[user].avatar}`;
+        currentUserText[1].id = thumbs[user].id;
         // currentUserText[2].textContent = data[user].name;
         // currentUserText[3].textContent = data[user].role;
         // currentUserText[4].textContent = data[user].nickname;
              
-             
+            currentUser.addEventListener("click", retrieveProjectInfo);
              userSection.appendChild(currentUser);
  }
 }
