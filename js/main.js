@@ -49,9 +49,9 @@ function handleDataSet(data) {
 
 function retrieveProjectInfo(event) {
   //test for an id
-
-  console.log(event.target.id);
-  debugger;
+  //check for an id, and if there isnt one, then dont try the fetch
+  //because it'll break ( the PHP will choke)
+  if (!event.target.id) { return }
 
   fetchData(`./includes/index.php?id=${event.target.id}`).then(data => console.log(data)).catch(err => console.log(err));
 }
