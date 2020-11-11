@@ -47,12 +47,13 @@ function handleDataSet(data) {
       console.log(data);
  }
 
-function retrieveProjectInfo() {
+function retrieveProjectInfo(event) {
   //test for an id
-  debugger;
-  console.log(this.id);
 
-  fetchData(`./includes/index.php?id=${this.id}`).then(data => console.log(data)).catch(err => console.log(err));
+  console.log(event.target.id);
+  debugger;
+
+  fetchData(`./includes/index.php?id=${event.target.id}`).then(data => console.log(data)).catch(err => console.log(err));
 }
 
  function renderPortfolioThumbnails(thumbs) {
@@ -60,7 +61,7 @@ function retrieveProjectInfo() {
   let userSection =document.querySelector(".user-section"),
     userTemplate = document.querySelector("#profs-template").content;
 
-      debugger;
+      // debugger;
       for (let user in thumbs) {
 
 
@@ -73,9 +74,10 @@ function retrieveProjectInfo() {
         // currentUserText[3].textContent = data[user].role;
         // currentUserText[4].textContent = data[user].nickname;
              
-            currentUser.addEventListener("click", retrieveProjectInfo);
+            // add this new user to the view
              userSection.appendChild(currentUser);
  }
+ userSection.addEventListener("click", retrieveProjectInfo);
 }
 
  fetchData('./includes/index.php').then(data => renderPortfolioThumbnails(data)).catch(err => console.log(err));
